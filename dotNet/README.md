@@ -23,5 +23,10 @@ So the code might not be up to my current experience level and I probably do thi
  
 ### Usage
 Using this tool is pretty straightforward.
-Simply choose 
-![image-resizer-usage.png](/resources/image-resizer-usage.png)
+Note that the original files are never touched - so don't worry about loosing your originals.
+
+ 1. Simply choose a source folder containing the images you want to resize
+ 2. Now choose a target folder where the resized images should be copied
+ 3. Then choose your desired scaling percentage and click Start
+
+![image-resizer-usage.png](resources/image-resizer-usage.png)
