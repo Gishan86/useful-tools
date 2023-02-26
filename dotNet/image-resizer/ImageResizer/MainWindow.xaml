@@ -1,0 +1,64 @@
+﻿<Window x:Class="ImageResizer.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="Image Resizer" Height="350" Width="525" ResizeMode="NoResize" WindowStartupLocation="CenterScreen" Icon="Resources/image.png">
+    
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="*" />
+            <RowDefinition Height="35" />
+        </Grid.RowDefinitions>
+        
+        <Grid Grid.Row="0" Margin="5">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="75" />
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="30" />
+            </Grid.ColumnDefinitions>
+
+            <TextBlock Text="Source" Grid.Column="0" />
+            <TextBox x:Name="txtRoot" Grid.Column="1" />
+            <Button x:Name="btnRoot" Grid.Column="2" Width="30" Click="btnRoot_Click" ToolTip="Choose Source folder">
+                <Image Source="/Resources/folder_explore.png" Height="16" />
+            </Button>
+        </Grid>
+
+        <Grid Grid.Row="1" Margin="5">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="75" />
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="30" />
+            </Grid.ColumnDefinitions>
+
+            <TextBlock Text="Target" Grid.Column="0" />
+            <TextBox x:Name="txtTarget" Grid.Column="1" />
+            <Button x:Name="btnTarget" Grid.Column="2" Width="30" Click="btnTarget_Click" ToolTip="Choose Target folder">
+                <Image Source="/Resources/folder_explore.png" Height="16" />
+            </Button>
+        </Grid>
+
+        <Grid Grid.Row="2" Margin="5">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="75" />
+                <ColumnDefinition Width="50" />
+                <ColumnDefinition Width="*" />
+            </Grid.ColumnDefinitions>
+            
+            <TextBlock Text="Scale %" Grid.Column="0" />
+            <TextBox x:Name="txtScale" Grid.Column="1" Text="{Binding ElementName=scaleSlider, Path=Value}" ToolTip="Desired scaling percentage (50 = half, 100 = no change, 200 = double)" Margin="0,0,5,0" />
+            <Slider x:Name="scaleSlider" Grid.Column="2" Minimum="10" Maximum="500" SmallChange="10" LargeChange="25" Interval="1" IsSnapToTickEnabled="True" TickFrequency="10" TickPlacement="TopLeft" Value="100" ToolTip="Desired scaling percentage (50 = half, 100 = no change, 200 = double)" />
+        </Grid>
+
+        <ListBox x:Name="lstOutput" Grid.Row="3" Margin="5" />
+        
+        <Button x:Name="btnStart" Grid.Row="4" Margin="5" Width="100" HorizontalAlignment="Right" Click="btnStart_Click">
+            <StackPanel Orientation="Horizontal">
+                <Image Source="/Resources/scale_image.png" Margin="0,2,5,0" />
+                <TextBlock Text="Start" VerticalAlignment="Center" />
+            </StackPanel>
+        </Button>
+    </Grid>
+</Window>
